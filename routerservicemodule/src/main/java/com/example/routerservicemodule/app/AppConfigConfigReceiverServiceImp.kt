@@ -5,7 +5,7 @@ import com.example.basemodule.context
 import com.example.routerservicemodule.getAuthProviderService
 import com.example.routerservicemodule.getSearchProviderService
 
-class AppConfigReceiverServiceImp : IAppReceiverConfiguration {
+class AppConfigConfigReceiverServiceImp : IAppConfigReceiverService {
     override fun getBoltEntryFragment(): Fragment? {
         return null
     }

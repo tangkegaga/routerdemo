@@ -2,7 +2,7 @@ package com.example.routerservicemodule.app
 
 import androidx.fragment.app.Fragment
 
-interface IAppReceiverConfiguration {
+interface IAppConfigReceiverService {
     fun getBoltEntryFragment(): Fragment?
     fun getSearchEntryFragment(): Fragment?
     fun getMapEntryFragment(): Fragment?
