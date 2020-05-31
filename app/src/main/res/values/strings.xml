@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RouterDemo</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_bolt">Bolt</string>
+    <string name="menu_my_account">Profile</string>
 </resources>
