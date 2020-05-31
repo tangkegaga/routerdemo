@@ -1,0 +1,8 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_auth_fragment">Hello Sign in fragment</string>
+    <string name="signin">sign in</string>
+    <string name="signOut">sign out</string>
+
+
+</resources>
