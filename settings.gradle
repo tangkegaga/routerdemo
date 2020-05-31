@@ -1,2 +1,8 @@
+include ':mapmodule'
+include ':boltmodule'
+include ':authmodule'
+include ':searchmodule'
+include ':routerservicemodule'
+include ':basemodule'
 include ':app'
 rootProject.name = "RouterDemo"
