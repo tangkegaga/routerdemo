@@ -5,11 +5,11 @@ interface IAppConfigProviderService {
     //Presentation
     fun getAppName(): String
     fun getAppVersion(): String
-    fun getBaseURL(): String?=null
+    fun getAuthBaseURL(): String?=null
+    fun getSearchBaseURL(): String?=null
 /*
 
     fun getBoltBaseURL(): String?=null
-    fun getAuthBaseURL(): String?=null
     fun getMapBaseURL(): String?=null
     fun getSearchBaseURL(): String?=null
 

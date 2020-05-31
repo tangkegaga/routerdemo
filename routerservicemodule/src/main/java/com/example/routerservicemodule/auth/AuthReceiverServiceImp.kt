@@ -10,6 +10,6 @@ class AuthReceiverServiceImp : IAuthReceiverService {
     }
 
     override fun getBaseURL(): String? {
-        return context.getAppConfigProviderService()?.getBaseURL()
+        return context.getAppConfigProviderService()?.getAuthBaseURL()
     }
 }
