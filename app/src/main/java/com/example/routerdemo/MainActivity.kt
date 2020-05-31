@@ -14,26 +14,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        openFragment(context.getAppConfigReceiverService()?.getSearchEntryFragment())
         bottomNavigation = findViewById(R.id.bottom_navigation);
-
         bottomNavigation?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_search -> {
-                    context.getAppConfigReceiverService()?.getSearchEntryFragment()?.let {
-                        openFragment(it)
-                    }
+                    openFragment(context.getAppConfigReceiverService()?.getSearchEntryFragment())
                     true
                 }
                 R.id.menu_auth -> {
-                    context.getAppConfigReceiverService()?.getAuthEntryFragment()?.let {
-                        openFragment(it)
-                    }
+                    openFragment(context.getAppConfigReceiverService()?.getAuthEntryFragment())
                     true
                 }
                 R.id.menu_bolt -> {
-                    context.getAppConfigReceiverService()?.getBoltEntryFragment()?.let {
-                        openFragment(it)
-                    }
+                    openFragment(context.getAppConfigReceiverService()?.getBoltEntryFragment())
                     true
                 }
                 else -> false
@@ -41,10 +35,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+    private fun openFragment(fragment: Fragment?) {
+        fragment?.let {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
 }
