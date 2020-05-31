@@ -12,21 +12,21 @@ fun getAppContext(): BaseModuleApplication {
 
 abstract class BaseModuleApplication : Application() {
 
-    var lifeCycleManager: BaseModuleLifeCycleManager? = null
+    lateinit var lifeCycleManager: BaseModuleLifeCycleManager
     abstract fun initLifeCycleManager(): BaseModuleLifeCycleManager
 
     override fun onCreate() {
         super.onCreate()
         context = this
         lifeCycleManager = initLifeCycleManager()
-        lifeCycleManager!!.onCreate()
+        lifeCycleManager.onCreate()
     }
 
     override fun onTerminate() {
         super.onTerminate()
-        lifeCycleManager?.onDestroy()
+        lifeCycleManager.onDestroy()
     }
 
-    fun getModuleConfig(): IModuleConfig = lifeCycleManager!!.getModuleConfig()
+    fun getModuleConfig(): IModuleConfig = lifeCycleManager.getModuleConfig()
 }
 
