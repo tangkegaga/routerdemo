@@ -7,6 +7,7 @@ interface IAppConfigProviderService {
     fun getAppVersion(): String
     fun getAuthBaseURL(): String?=null
     fun getSearchBaseURL(): String?=null
+    fun getMapBaseURL(): String?=null
 /*
 
     fun getBoltBaseURL(): String?=null

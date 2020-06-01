@@ -1,22 +1,27 @@
 package com.example.routerdemo.routerservice
 
 
+import com.example.routerdemo.BuildConfig
 import com.example.routerservicemodule.app.IAppConfigProviderService
 
 class AppConfigProviderServiceImp : IAppConfigProviderService {
     override fun getAppName(): String {
-        return "Router Demo App"
+        return BuildConfig.APPLICATION_ID
     }
 
     override fun getAppVersion(): String {
-        return "1.0"
+        return BuildConfig.VERSION_NAME
     }
 
     override fun getAuthBaseURL(): String? {
-        return "https://www.rea-group.com/auth/"
+        return BuildConfig.AUTH_ENDPOINT_URL
     }
 
     override fun getSearchBaseURL(): String? {
-        return "https://www.rea-group.com/Search/"
+        return BuildConfig.SEARCH_ENDPOINT_URL
+    }
+
+    override fun getMapBaseURL(): String? {
+        return BuildConfig.MAP_ENDPOINT_URL
     }
 }
