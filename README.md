@@ -5,8 +5,7 @@ The original version of this architecture is: https://github.com/LiushuiXiaoxia/
 It has been evolved to the current version.
 
 
-![Diagram](/images/MFE_by_Router.png)
-
+![Diagram](/image/MFE_by_Router.png)
 
 
 
