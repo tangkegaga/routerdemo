@@ -10,7 +10,7 @@ is to have an arch, where we divide business logic into multiple micro front end
 
 in the app, there are 2 businiss features, 
 * search feature, where allows user save a search if the user logged in. 
-* signin feature, where allows user sign in. 
+* authentication feature, where allows user sign in. 
 
 ##### principles we want to use:
 
@@ -24,11 +24,11 @@ in the app, there are 2 businiss features,
 
 in this diagram, the dependencies of 2 business blocks are, 
 
-* Search block is independent: program to an interface ISession(good).
-* Auth block depends Search block(problem): it need access class Search.kt and interface ISession in Search block. 
+* Search block is Independent: program to an interface ISession(good).
+* Auth block depends on Search block(problem): it need access class Search.kt and interface ISession in Search block. 
 
-#### What we want :
-is to make Auth block also independent, while still can accss ISession and Search.kt.
+## Solution Number 1:
+**What we want is:** to make Auth block also independent, while still can accss ISession and Search.kt.
 
 *  To be able to access ISession interface, let us create a base module, which sit below the feature modules, problem solved.
 *  To be able to access Search.kt, so that we can assign an implementation of ISession for Search.kt, wait a minutes.....
@@ -38,23 +38,21 @@ is to make Auth block also independent, while still can accss ISession and Searc
    The key/value pair of the dictionary is:` <interface: Class<T>, implementClass: Class<out T>> `
    Then
    - Auth module will add `<ISession::class.java, SessionImp::class.java>` into the dictionary
-   - Search module will look up dictionary and use **Reflection** to get an instance of SessionImp.
-   
-   Problem solved, see solution one!
-
-## solution one
+   - Search module will look up dictionary and use **Reflection to get an instance of SessionImp**.
+  
+   Problem solved! 
 
 ![Diagram](/image/techdiagram2.png)
 
 
 #### Problem introduced
-By adding ISession interface into base module, it violates the principle of clean architect: *base module should NOT have any businiss logic*. if we think about another project2 will use this base module, and have a different ISession2 interfaces, we will end up ISession1 is not useless for project 2, and we will add more and more interfaces which other modules don't need. 
-In this sense, the problems is base module actually couples with feature module logic. 
+By adding ISession interface into base module, it violates the principle of clean architect: **base module should NOT have any business logic**. if we think about another project2 will use this base module, and have a different ISession2 interfaces, we will end up ISession1 is not useless for project 2, and we will add more and more interfaces which other modules don't need. 
+In this sense, the problem is base module actually couples with feature module logic. 
 
 #### To solve this problem, let us move ISession back to Search module. 
 like below, 
 
-New prolem is, Auth module will not be able to access ISession interface again 
+New prolem is, Auth module will not be able to access ISession interface again, see pink circles
 
 ![Diagram](/image/techdiagram3.png)
 
@@ -62,7 +60,7 @@ New prolem is, Auth module will not be able to access ISession interface again
 
 
 
-## solution two
+## Solution Number 2
 1. Let us introduce another module Router/Coordinator, which sits above feature moduels. 
 2. Let us add new interfaces in Auth, and let system know what Auth module can offer by adding them into Router Dictionary
    **note the green circle:**
@@ -78,10 +76,10 @@ New prolem is, Auth module will not be able to access ISession interface again
 
 
 
-## Final version
+## Final Version
 ![Diagram](/image/finaldiagram.png)
 
-**Note** even app is not allowed to access feature module directly (as much as we can, except extreme cases). 
+**Note!:**  Even app is not allowed to access feature module directly (as much as we can, except extreme cases). 
 We also want to app be decoupled with feature modules. The 2-way talk between app and feature module is also done via Router Dictionary. 
 
 - Refer to the demo app for examples: 
