@@ -4,7 +4,7 @@ The original version of this architecture is: https://github.com/LiushuiXiaoxia/
 
 ##### Our goal:
 
-is to have an arch, where we divide business logic into multiple micro front end modules(able to be put into a seperate repo), and they are able to communicate to each other while not depend on each other. 
+is to have an architecture, where we divide business logic into multiple micro front end modules(able to be put into a seperate repo), and they are able to communicate to each other while not depend on each other. 
 
 ##### To illustrate the idea, let us make this simple use case:
 
@@ -46,7 +46,7 @@ in this diagram, the dependencies of 2 business blocks are,
 
 
 #### Problem introduced
-By adding ISession interface into base module, it violates the principle of clean architect: **base module should NOT have any business logic**. if we think about another project2 will use this base module, and have a different ISession2 interfaces, we will end up ISession1 is not useless for project 2, and we will add more and more interfaces which other modules don't need. 
+By adding ISession interface into base module, it violates the principle of clean architecture: **base module should NOT have any business logic**. if we think about another project2 will use this base module, and have a different ISession2 interfaces, we will end up ISession1 is not useless for project 2, and we will add more and more interfaces which other modules don't need. 
 In this sense, the problem is base module actually couples with feature module logic. 
 
 #### To solve this problem, let us move ISession back to Search module. 
