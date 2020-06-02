@@ -96,7 +96,7 @@ We also want to app be decoupled with feature modules. The 2-way talk between ap
   ```
   fun <T> getServiceImplementClass(serviceClass: Class<T>): Class<out T>?
   ```
-  - Helper class for looking up dictionary and get an instance if there is:
+  - Helper class for looking up dictionary and get an instance by using reflection:
   ```
   public class InjectHelper {
     @Nullable
