@@ -1,6 +1,6 @@
 # A micro frondend soluction: Router
 
-The original version of this architecture is: https://github.com/LiushuiXiaoxia/AndroidModular, which is "solution two" below in this article. This version and the new version I will introduce here have been adopted in our enterprise app for around 2 years. 
+The original version of this architecture is: https://github.com/LiushuiXiaoxia/AndroidModular, which is "solution Number 1" below in this article. This version and the new version I will introduce here have been adopted in our enterprise app for around 2 years. 
 
 ##### Our goal:
 
