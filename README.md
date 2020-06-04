@@ -120,3 +120,10 @@ We also want to app be decoupled with feature modules. The 2-way talk between ap
   ```
 
 
+## Note:
+  - IReceivedService can require things from multiple IProviderSerivces, including from App
+  - There are 2 ways of routing between module A and module B:
+    1. get the fragment/activity and navigate from module A
+    2. pass content to router, let router do the navigation from A to B
+    
+
