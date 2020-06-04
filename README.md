@@ -125,5 +125,6 @@ We also want to app be decoupled with feature modules. The 2-way talk between ap
   - There are 2 ways of routing between module A and module B:
     1. get the fragment/activity and navigate from module A
     2. pass content to router, let router do the navigation from A to B
+    3. module A and B have a contract from business level, but doesn't bind with each other from code level
     
 
