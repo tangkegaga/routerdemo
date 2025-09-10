@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         openFragment(context.getAppConfigReceiverService()?.getSearchEntryFragment())
-        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation = findViewById(R.id.bottom_navigation_a);
+        
         bottomNavigation?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_search -> {
